@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: vuran-consulting-api
+    env: docker
+    rootDir: server
+    dockerfilePath: ./Dockerfile
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: CORS_ORIGIN
+        value: https://<your-vercel-domain>.vercel.app
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_SECURE
+        value: "false"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        value: "VURAN Consulting <no-reply@vc24.berlin>"
+      - key: MAIL_TO
+        value: "info@vc24.berlin"
